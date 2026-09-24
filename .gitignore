@@ -1,0 +1,17 @@
+# dependencies
+node_modules/
+
+# local secrets & config — never commit (see .env.example)
+.env
+.env.*
+!.env.example
+
+# runtime job state / transcripts
+.interpreter/
+
+# research notes are kept local (not part of the published repo)
+research/
+
+# build output & logs
+dist/
+*.log

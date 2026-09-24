@@ -1,0 +1,31 @@
+{
+  "name": "interpreter",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "description": "Structure-aware Markdown translation agent: block/cell/unit-level editing with lossless layout preservation.",
+  "scripts": {
+    "demo": "node --experimental-transform-types src/demo.ts",
+    "cli": "node --experimental-transform-types src/cli.ts",
+    "serve": "node --experimental-transform-types src/cli.ts serve",
+    "mcp": "node --experimental-transform-types src/cli.ts mcp",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test --experimental-transform-types \"tests/**/*.test.ts\""
+  },
+  "engines": {
+    "node": ">=22.18"
+  },
+  "devDependencies": {
+    "@types/mdast": "^4.0.4",
+    "@types/node": "^26.6.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "mdast-util-to-string": "^4.0.0",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "unified": "^11.0.5",
+    "zod": "^3.25.76"
+  }
+}

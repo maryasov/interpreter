@@ -1,0 +1,33 @@
+# interpreter — configuration (TOML subset; see src/agent/config.ts)
+#
+# This file holds non-secret defaults. Provider endpoint/model/API key should
+# come from the environment (copy .env.example → .env); env vars override
+# anything here:
+#   LLM_BASE_URL / LLM_MODEL / LLM_API_KEY
+#   INTERPRETER_HOST / INTERPRETER_PORT / INTERPRETER_TOKEN
+# Secrets never belong in this file.
+
+[server]
+host = "127.0.0.1"
+port = 4100
+jobDir = ".interpreter/jobs"
+# token = "change-me"        # or INTERPRETER_TOKEN; callers then need Authorization: Bearer <token>
+
+[agent]
+mode = "agent"               # "agent" (tool loop) | "pipeline" (batch JSON, cheaper)
+maxTurns = 40
+# systemPromptFile = "prompts/base.md"   # overrides the built-in translator prompt
+
+activeProvider = "default"
+
+# Base URL / model / key are expected from .env (LLM_* vars). The values below
+# are only placeholder fallbacks — replace them here if you prefer config over env.
+[providers.default]
+baseURL = ""
+model = ""
+temperature = 0
+
+# Extra providers (switch via activeProvider):
+# [providers.local]
+# baseURL = "http://127.0.0.1:8000/v1"
+# model = "your-model"
